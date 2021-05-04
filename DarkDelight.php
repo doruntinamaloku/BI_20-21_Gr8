@@ -242,37 +242,44 @@
             <p style="float: right;">Template by OS Templates</p>
         </div>
     </footer>
+
+    <?php
+        $slideIndex = 1;
+        slide($slideIndex);
+        //$document->Load('book.xml');
+    
+        function nextSlide($n) {
+            slide($slideIndex += $n);
+        }
+        function currentSlide($n) {
+            slide($slideIndex = $n);
+        }
+        function slide($n) {
+            $fotot = ["images/cover1.jpg", "images/cover2.jpg", "images/cover3.jpg", "images/cover4.jpg", "images/cover5.jpg"];
+            $h3 = ["26 YEARS OF GIVING A GLAM!", "BEST-SELLING EYE SHADOW SHADES", "YOUR FOUNDATION FORMULA.YOUR WAY", "GET $10 OFF WHEN YOU REFER A FRIEND", "GIFT NOW"];
+            $p = ["The glammest highlights, legendary faces and iconic shades from the feel-good history of GLAM.The ultimate destination for lip colour. From high-shine to matte or cream, find the finish you want in an extensive array of all the shades, forms and benefits you crave.", "Explore our Eye Shadow formulas to find the best texture and finish for you.Now with 46 new shades.", "Get your ultimate fit - in an instant - with our foundation filtering tool.",
+                "Here's how it works: Invite your friends to check us out. When they sign up they'll get $10 off their first order of $50+. After their purchase, we'll also send you $10 your next $50+ purchase.", "New members ONLY! Receive 15% off one online order. Use code WELCOME15 at checkout."];
+            $i;
+            $dots = $document->getElementsByClassName("dot");
+            if ($n > $fotot->length) { $slideIndex = 1; }
+            if ($n < 1) { $slideIndex = $fotot.length; }
+    
+            $img = $document.getElementById("sfoto");
+            $img->src = $fotot[$slideIndex - 1];
+            $document->getElementById("h3")->innerHTML = $h3[$slideIndex - 1];
+            $document->getElementById("p")->innerHTML = $p[$slideIndex - 1];
+    
+            for ($i = 0; $i < $fotot.length; $i++) {
+                $dots[$i]->className = $dots[$i]->className.replace(" active", "");
+            }
+            $dots[$slideIndex - 1]->className += " active";
+        }
+
+           
+        ?>
 </body>
 <script>
-    var slideIndex = 1;
-    slide(slideIndex);
-
-    function nextSlide(n) {
-        slide(slideIndex += n);
-    }
-    function currentSlide(n) {
-        slide(slideIndex = n);
-    }
-    function slide(n) {
-        var fotot = ["images/cover1.jpg", "images/cover2.jpg", "images/cover3.jpg", "images/cover4.jpg", "images/cover5.jpg"];
-        var h3 = ["26 YEARS OF GIVING A GLAM!", "BEST-SELLING EYE SHADOW SHADES", "YOUR FOUNDATION FORMULA.YOUR WAY", "GET $10 OFF WHEN YOU REFER A FRIEND", "GIFT NOW"];
-        var p = ["The glammest highlights, legendary faces and iconic shades from the feel-good history of GLAM.The ultimate destination for lip colour. From high-shine to matte or cream, find the finish you want in an extensive array of all the shades, forms and benefits you crave.", "Explore our Eye Shadow formulas to find the best texture and finish for you.Now with 46 new shades.", "Get your ultimate fit - in an instant - with our foundation filtering tool.",
-            "Here's how it works: Invite your friends to check us out. When they sign up they'll get $10 off their first order of $50+. After their purchase, we'll also send you $10 your next $50+ purchase.", "New members ONLY! Receive 15% off one online order. Use code WELCOME15 at checkout."];
-        var i;
-        var dots = document.getElementsByClassName("dot");
-        if (n > fotot.length) { slideIndex = 1 }
-        if (n < 1) { slideIndex = fotot.length }
-
-        var img = document.getElementById("sfoto");
-        img.src = fotot[slideIndex - 1];
-        document.getElementById("h3").innerHTML = h3[slideIndex - 1];
-        document.getElementById("p").innerHTML = p[slideIndex - 1];
-
-        for (i = 0; i < fotot.length; i++) {
-            dots[i].className = dots[i].className.replace(" active", "");
-        }
-        dots[slideIndex - 1].className += " active";
-    }
+    
     var myLink = document.getElementById("myLink");
 
     // When the user scrolls down 20px from the top of the document, show the button
