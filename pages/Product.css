@@ -1,0 +1,71 @@
+main {
+    background-color: #1b1b1b;
+    border-bottom: 4px solid #151513;
+}
+.rreshti {
+    color:#999999;
+    height: 760px; 
+}
+.rreshti,
+.rreshti  .column {
+    padding: 8px;
+  }
+.column {
+    float: left;
+    width: 310px;
+}
+.content {
+    padding: 10px;
+    border: 1px solid #151513;
+    background-color:white;
+    height: 340px;
+}
+.content p {
+    margin: 3px 0;
+    color: #151513;
+}
+.content b {
+    float: right;
+}
+#rating {
+    float: right;
+}
+.check {
+    display: none;
+    color: green;
+    float: left;
+    font-weight: bolder;
+    margin-bottom: 3px;
+}
+.checked {
+    color: orange;
+}
+.content button {
+    border: none;
+    outline: 0;
+    color: green;
+    background-color: transparent;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 15px;
+  }
+  .content button:hover {
+    opacity: 0.7;
+  }
+.content img {
+    border: 1px solid #9999997e;
+}
+.btn {
+    border: none;
+    outline: none;
+    padding: 12px 16px;
+    background-color: white;
+    cursor: pointer;
+}
+.btn:hover {
+    background-color: #ddd;
+}
+.btn.active {
+    background-color: #666;
+    color: white;
+}
