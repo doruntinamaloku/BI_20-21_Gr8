@@ -146,14 +146,14 @@ nav ul li {
         display: none;
         position: absolute;
         z-index: 1;
-        border-bottom: 1px solid white;
+        /*border-bottom: 1px solid white; */
     }
     nav ul li ul li {
        padding: 15px ;
        margin-left: -41px;
        width: 43px;
        background-color: #1b1b1b;
-       border-right: 1px solid rgb(194, 194, 140);;
+       /*border-right: 1px solid rgb(194, 194, 140);*/
        
     }
     nav ul li:hover ul{
