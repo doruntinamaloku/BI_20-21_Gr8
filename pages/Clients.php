@@ -78,6 +78,56 @@
 
 
 <body>
+
+<?php
+            class Client {
+                public $firstname;
+                public $lastName;
+                public $age;
+                public $comment;
+              
+                public function __construct($firstName, $lastName, $age, $comment) {
+                  $this->firstName = $firstName;
+                  $this->lastName = $lastName;
+                  $this-> age= $age;
+                  $this-> comment= $comment;
+                }
+                
+                public function get_firstname() {
+                  return $this->firstName;
+                }
+
+                public function get_lastName() {
+                    return $this->lastName;
+                  }
+
+                public function get_age() {
+                    return $this->age;
+                  }
+
+                public function get_comment() {
+                    return $this->comment;
+                  }
+              }
+        
+              class Name extends Client{
+                public function emriMbiemri() : string{
+                    return "$this->firstName $this->lastName";
+                }
+
+                
+
+              }
+        
+              $client1 = new Client("Angela", "Simpson", 24, "Just thought I’d let you know what a great experience I had. It was the first time I’d ever been to the salon as I have just moved to Dublin but I will definitely be back when I next need an appointment as it was an awesome experience.");
+              $client2 = new Client("Kate", "Smith", 44, "I really wanted to take some time out to say how lovely my experience was at your DarkDelight cosmetic. I came in for a spray tan which I was very nervous about but was put at ease and made feel very comfortable by Denise. She was very professional and even gave me advice I never considered before. It is can be hard to find a good salon these days let alone an excellent beautician!");
+              $client3 = new Name("Marie", "Simpson", 18, "DarkDelight cosmetic is just perfect! I am so glad that, finally, I could find all the beauty services concentrated in only one place: manicure, pedicure, face and body treatment, waxing , make up and so on…so it is very convenient! This is a very welcoming environment here with Denise. She is very friendly and professional and uses trustful products. Easy parking and great service at the right price.");
+              $client4 = new Client("Barbara", "Simpson", 50, "Wonderful, lovely therapist and very nice relaxing treatment.");
+
+             
+                
+        
+        ?>
     <header>
         <div id="header">
             <div id="logo">
@@ -159,24 +209,28 @@
                 <div id="djatht">
                     <article class="ndarja" id="roww1" style="margin-left: 0px;">
                         <section class="k" id="c1">
-                            <h6></h6>
-                            <p class="break"></p>
+                            <h6><?php  echo $client1->get_firstName(); ?></h6>
+                            <p class="break"><?php  echo $client1->get_comment(); ?></p>
                         </section>
+
                         <section class="k" id="c2">
-                            <h6></h6>
-                            <p class="break"></p>
+                            <h6><?php  echo $client2->get_firstName(); ?></h6>
+                            <p class="break"><?php  echo $client2->get_comment(); ?></p>
                         </section>
                     </article>
+
                     <article class="ndarja" id="roww2">
                         <section class="k" id="c3">
-                            <h6></h6>
-                            <p class="break"></p>
+                            <h6><?php  echo $client3->emriMbiemri(); ?></h6>
+                            <p class="break"><?php  echo $client3->get_comment(); ?></p>
                         </section>
+
                         <section class="k" id="c4">
-                            <h6></h6>
-                            <p class="break"></p>
+                            <h6><?php  echo $client4->get_firstName(); ?></h6>
+                            <p class="break"><?php  echo $client4->get_comment(); ?></p>
                         </section>
                     </article>
+
                     <article class="ndarja" id="roww3">
                         <section class="k">
                             <h6>Lee</h6>
@@ -184,13 +238,15 @@
                                 <source src="audio/Kylie.mp3" type="audio/mpeg" />
                             </audio>
                         </section>
+
                         <section class="k">
                             <h6>Ashley</h6>
                             <audio controls>
                                 <source src="audio/Kylie2.mp3" type="audio/mpeg" />
                             </audio>
                         </section>
-                    </darticleiv>
+
+                    </article>
                 </div>
             </div>
         </div>
@@ -240,61 +296,9 @@
             <p style="float: right;">Template by OS Templates</p>
         </div>
     </footer>
-    <script>
-        function Client(firstname, lastName, age, comment) {
-            this.firstname = firstname;
-            this.lastName = lastName;
-            this.age = age;
-            this.comment = comment;
-        }
 
-        Client.prototype.name = function () {
-            return this.firstname + " " + this.lastName;
-        };
+      
 
-        Client.prototype.history = function () {
-            return this.firstname + " " + this.lastName + ", " + this.age;
-        };
-
-        var client1 = new Client("Angela", "Simpson", 24, "Just thought I’d let you know what a great experience I had. It was the first time I’d ever been to the salon as I have just moved to Dublin but I will definitely be back when I next need an appointment as it was an awesome experience.")
-        var client2 = new Client("Kate", "Smith", 44, "I really wanted to take some time out to say how lovely my experience was at your DarkDelight cosmetic. I came in for a spray tan which I was very nervous about but was put at ease and made feel very comfortable by Denise. She was very professional and even gave me advice I never considered before. It is can be hard to find a good salon these days let alone an excellent beautician!");
-        var client3 = new Client("Marie", "Simpson", 18, "DarkDelight cosmetic is just perfect! I am so glad that, finally, I could find all the beauty services concentrated in only one place: manicure, pedicure, face and body treatment, waxing , make up and so on…so it is very convenient! This is a very welcoming environment here with Denise. She is very friendly and professional and uses trustful products. Easy parking and great service at the right price.")
-        var client4 = new Client("Barbara", "Simpson", 50, "Wonderful, lovely therapist and very nice relaxing treatment.")
-
-        //document.getElementById("c1").children[0].innerHTML = client1.name();
-        //document.getElementById("c1").children[0].innerHTML = client1.history();
-        document.getElementById("c1").children[0].innerHTML = client1.firstname;
-        document.getElementById("c1").children[1].innerHTML = client1.comment;
-        document.getElementById("c2").children[0].innerHTML = client2.firstname;
-        document.getElementById("c2").children[1].innerHTML = client2.comment;
-        document.getElementById("c3").children[0].innerHTML = client3.name();
-        document.getElementById("c3").children[1].innerHTML = client3.comment;
-        document.getElementById("c4").children[0].innerHTML = client4.history();
-        document.getElementById("c4").children[1].innerHTML = client4.comment;
-
-        (() => {
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(success, error);
-            } else {
-                alert("Geolocation is not supported by this browser");
-            }
-        })();
-
-        function success(position) {
-            const latitude = position.coords.latitude;
-            const longitude = position.coords.longitude;
-            getMap(latitude, longitude);
-        }
-        function error() {
-            alert("Unable to retrieve location");
-        }
-        function getMap(latitude, longitude) {
-            const map = L.map("map").setView([latitude, longitude], 16);
-            L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png").addTo(map);
-            L.marker([latitude, longitude]).addTo(map);
-            document.getElementById("koordinatat").innerHTML = "  Your coordinates: " + latitude + " , " + longitude;
-        }
-    </script>
 </body>
 
 </html>
